@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section style="padding-top:32px;">
+  <h2 class="lead__headline" style="font-size:32px;">{{ page.title }}</h2>
+  <div class="story-list" style="margin-top:20px;">
+    {% assign matched = site.posts | where_exp: "post", "post.category == page.title" %}
+    {% for post in matched %}
+      <article class="story">
+        <span class="story__eyebrow">{{ post.category }}</span>
+        <h3 class="story__headline"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.dek %}<p class="story__dek">{{ post.dek }}</p>{% endif %}
+        <div class="byline">By {{ post.author | default: site.author }} · {{ post.date | date: "%B %-d, %Y" }}</div>
+      </article>
+    {% else %}
+      <p>No stories in this category yet.</p>
+    {% endfor %}
+  </div>
+</section>

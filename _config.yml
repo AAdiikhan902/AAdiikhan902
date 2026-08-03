@@ -1,0 +1,42 @@
+title: The Blue Carpet
+tagline: Independent news, filed as it happens
+description: >-
+  A community news site covering the stories that matter, updated daily.
+author: Your Name
+email: you@example.com
+
+# Change this to https://yourusername.github.io if this is your main site,
+# or leave as-is if you're using a project repo with a custom domain.
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Categories shown in the top nav, in this order.
+nav_categories:
+  - World
+  - Politics
+  - Business
+  - Technology
+  - Sports
+  - Opinion
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

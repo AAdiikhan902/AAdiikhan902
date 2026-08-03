@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="article">
+  <div class="lead__eyebrow">{{ page.category | default: "News" }}</div>
+  <h1 class="article__headline">{{ page.title }}</h1>
+  {% if page.dek %}<p class="lead__dek">{{ page.dek }}</p>{% endif %}
+  <div class="article__meta byline">
+    <span>By {{ page.author | default: site.author }}</span>
+    <span>{{ page.date | date: "%B %-d, %Y — %-I:%M %p" }}</span>
+  </div>
+  <div class="article__body">
+    {{ content }}
+  </div>
+</article>
